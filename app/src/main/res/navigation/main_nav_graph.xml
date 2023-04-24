@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/articlesListFragment">
+
+    <fragment
+        android:id="@+id/articlesListFragment"
+        android:name="pt.guilhermerodrigues.goodbarbercodechallenge.features.articles.presentation.articleslist.ArticlesListFragment"
+        android:label="ArticlesListFragment"
+        tools:layout="@layout/articles_recycler_list_fragment">
+        <action
+            android:id="@+id/action_articlesListFragment_to_placeholder"
+            app:destination="@id/articleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="pt.guilhermerodrigues.goodbarbercodechallenge.features.articles.presentation.article.ArticleFragment"
+        android:label="ArticleFragment"
+        tools:layout="@layout/article_detail_web_view"
+        />
+</navigation>

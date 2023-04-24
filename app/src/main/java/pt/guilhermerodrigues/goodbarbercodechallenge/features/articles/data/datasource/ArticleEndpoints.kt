@@ -1,4 +1,4 @@
-package pt.guilhermerodrigues.goodbarbercodechallenge.articles.data.datasource
+package pt.guilhermerodrigues.goodbarbercodechallenge.features.articles.data.datasource
 
 object ArticleEndpoints {
     const val BASE_URL = "https://api.goodbarber.net/front/"

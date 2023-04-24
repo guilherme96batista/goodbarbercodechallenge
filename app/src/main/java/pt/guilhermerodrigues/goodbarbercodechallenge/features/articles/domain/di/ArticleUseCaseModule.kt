@@ -1,12 +1,12 @@
-package pt.guilhermerodrigues.goodbarbercodechallenge.articles.domain.di
+package pt.guilhermerodrigues.goodbarbercodechallenge.features.articles.domain.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import pt.guilhermerodrigues.goodbarbercodechallenge.articles.domain.IArticleRepository
-import pt.guilhermerodrigues.goodbarbercodechallenge.articles.domain.usecases.GetArticle
-import pt.guilhermerodrigues.goodbarbercodechallenge.articles.domain.usecases.GetArticles
+import pt.guilhermerodrigues.goodbarbercodechallenge.features.articles.domain.IArticleRepository
+import pt.guilhermerodrigues.goodbarbercodechallenge.features.articles.domain.usecases.GetArticle
+import pt.guilhermerodrigues.goodbarbercodechallenge.features.articles.domain.usecases.GetArticles
 import javax.inject.Singleton
 
 @Module
