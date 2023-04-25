@@ -5,9 +5,7 @@ import java.net.Socket
 
 
 object ConnectionChecker {
-    val hasNetworkConnection = isNetworkConnected()
-
-    private fun isNetworkConnected():  Boolean {
+    fun isNetworkConnected():  Boolean {
         return try {
             val socket = Socket()
             socket.connect(InetSocketAddress("8.8.8.8", 53), 1500)

@@ -11,13 +11,13 @@ import javax.inject.Singleton
 
 @Singleton
 class ArticleRepository @Inject constructor(
-    private val articleRemoteDataSource: IArticleRemoteDataSource
+    private val _articleRemoteDataSource: IArticleRemoteDataSource
 ) : IArticleRepository {
-    override suspend fun getArticles(): Result<Response> {
+    override suspend fun getArticles(perPage: Int?, page: Int?): Result<Response> {
         val result = withContext(Dispatchers.IO) {
-            if (ConnectionChecker.hasNetworkConnection) {
+            if (ConnectionChecker.isNetworkConnected()) {
                 try {
-                    val response = articleRemoteDataSource.getArticles()
+                    val response = _articleRemoteDataSource.getArticles(perPage, page)
                     return@withContext Result.success(response)
                 } catch (e: Exception) {
                     return@withContext Result.failure(e)
@@ -28,11 +28,11 @@ class ArticleRepository @Inject constructor(
         return result
     }
 
-    override suspend fun getArticle(id: Int, perPage: Int?, page: Int?): Result<Response> {
+    override suspend fun getArticle(id: Int): Result<Response> {
         val result = withContext(Dispatchers.IO) {
-            if (ConnectionChecker.hasNetworkConnection) {
+            if (ConnectionChecker.isNetworkConnected()) {
                 try {
-                    val response = articleRemoteDataSource.getArticle(id, perPage, page)
+                    val response = _articleRemoteDataSource.getArticle(id)
                     return@withContext Result.success(response)
                 } catch (e: Exception) {
                     return@withContext Result.failure(e)

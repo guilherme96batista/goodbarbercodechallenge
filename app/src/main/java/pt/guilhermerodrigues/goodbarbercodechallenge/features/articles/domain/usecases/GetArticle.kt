@@ -10,7 +10,7 @@ class GetArticle @Inject constructor(
     private val repository: IArticleRepository
 ) : UseCase<Result<Article>, UseCaseParams.ArticleParams> {
     override suspend fun invoke(params: UseCaseParams.ArticleParams): Result<Article> {
-        val result = repository.getArticle(params.articleId, params.perPage, params.page)
+        val result = repository.getArticle(params.articleId)
         result.fold(
             onSuccess = {
                 return Result.success(it.items.first())
